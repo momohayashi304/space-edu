@@ -1,0 +1,10 @@
+# OpenFOAMの計算結果（数字のフォルダ）を無視
+[0-9]*
+!0.orig/
+
+# 解析用の一時ファイルを無視
+*.foam
+*.OpenFOAM
+processor*
+postProcessing/
+dynamicCode/
