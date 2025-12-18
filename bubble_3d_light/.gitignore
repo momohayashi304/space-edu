@@ -1,0 +1,7 @@
+[0-9]*
+!0.orig/
+*.foam
+*.OpenFOAM
+processor*
+postProcessing/
+dynamicCode/
