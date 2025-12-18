@@ -1,0 +1,42 @@
+FoamFile { version 2.0; format ascii; class dictionary; object fvSchemes; }
+
+fluxRequired { p_rgh; alpha.water; }
+
+ddtSchemes
+{
+    default         Euler;
+}
+
+gradSchemes
+{
+    default         Gauss linear;
+}
+
+divSchemes
+{
+    div(phi,alpha)          Gauss vanLeer;
+    div(phirb,alpha)        Gauss interfaceCompression;
+    div(phi,alpha.water)    Gauss vanLeer;
+    div(phirb,alpha.water)  Gauss interfaceCompression;
+
+    // ここが今回の修正ポイント
+    div(rhoPhi,U)           Gauss upwind;
+    div(phi,U)              Gauss upwind;
+
+    default                 none;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default         linear;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
